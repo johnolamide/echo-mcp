@@ -68,8 +68,9 @@ class ChatRoomCreate(SQLModel):
 class ChatRoomRead(SQLModel):
     """Read chat room"""
     id: int
-    name: str
+    name: Optional[str] = None  # Optional for direct messages
     description: Optional[str] = None
+    room_type: RoomType = RoomType.GROUP
     is_active: bool
     created_by: int
     created_at: datetime
